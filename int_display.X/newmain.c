@@ -45,19 +45,19 @@ void __interrupt() intTempo(void) {
             PORTBbits.RB0 = 1; // seleciona display
             PORTBbits.RB1 = 0;
             PORTBbits.RB2 = 0;
-            PORTB = 0b00000000; // numero desejado
+            PORTB = 0b00000110; // numero 1
             LED = 1;
         } else if (LED == 1) {
             PORTBbits.RB0 = 0; // seleciona display
             PORTBbits.RB1 = 1;
             PORTBbits.RB2 = 0;
-            PORTB = 0b00000000; // numero desejado
+            PORTB = 0b01011011; // numero 2
             LED = 2;
         } else {
             PORTBbits.RB0 = 0; // seleciona display
             PORTBbits.RB1 = 0;
             PORTBbits.RB2 = 1;
-            PORTB = 0b00000000; // numero desejado
+            PORTB = 0b01001111; // numero 3
             LED = 0;
         }
     }
