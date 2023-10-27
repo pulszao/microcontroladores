@@ -12,3 +12,7 @@ Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](
 ### [int_tempo.X](https://github.com/pulszao/microcontroladores/tree/main/int_tempo.X)
  - Microcontrolador: PIC16F874A
  - Programa para fazer piscar um led por meio de uma interrupção de tempo
+
+### [int_display.X](https://github.com/pulszao/microcontroladores/tree/main/int_display.X)
+ - Microcontrolador: PIC16F874A
+ - Programa para fazer mostrar numeros pré determinados em um display de 7 segmentos por meio de interrupção de tempo
