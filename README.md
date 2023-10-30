@@ -1,4 +1,4 @@
-# microcontroladores
+# Microcontroladores
 Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](https://www.ucs.br/site)
 
 ### [sequencia_num.X](https://github.com/pulszao/microcontroladores/tree/main/sequencia_num.X)
@@ -16,3 +16,7 @@ Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](
 ### [int_display.X](https://github.com/pulszao/microcontroladores/tree/main/int_display.X)
  - Microcontrolador: PIC16F874A
  - Programa para fazer mostrar numeros pré determinados em um display de 7 segmentos por meio de interrupção de tempo
+
+### [int_999.X](https://github.com/pulszao/microcontroladores/tree/main/int_999.X)
+ - Microcontrolador: PIC16F874A
+ - Programa para fazer mostrar um contador de 0 a 999 em um display de 7 segmentos por meio de interrupção de tempo
