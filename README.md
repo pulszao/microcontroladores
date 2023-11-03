@@ -19,4 +19,8 @@ Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](
 
 ### [int_999.X](https://github.com/pulszao/microcontroladores/tree/main/int_999.X)
  - Microcontrolador: PIC16F874A
- - Programa para fazer mostrar um contador de 0 a 999 em um display de 7 segmentos por meio de interrupção de tempo
+ - Programa para fazer mostrar um contador de 0 a 999 em um display de 7 segmentos por meio de interrupção de tempos
+
+### [display_lcd.X](https://github.com/pulszao/microcontroladores/tree/main/display_lcd.X)
+ - Microcontrolador: PIC16F874A
+ - Programa para escrever uma palavra pré determinada no display LCD e piscar um LED.
