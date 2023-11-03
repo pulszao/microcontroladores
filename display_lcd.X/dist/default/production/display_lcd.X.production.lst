@@ -1,0 +1,1731 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Wed Oct 25 22:18:42 2023
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	16F874A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	psect	text6,local,class=CODE,merge=1,delta=2
+    15                           	psect	text7,local,class=CODE,merge=1,delta=2
+    16                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    17                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    18                           	dabs	1,0x7E,2
+    19     0000                     
+    20                           ; Version 2.40
+    21                           ; Generated 17/11/2021 GMT
+    22                           ; 
+    23                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    24                           ; All rights reserved.
+    25                           ; 
+    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    27                           ; 
+    28                           ; Redistribution and use in source and binary forms, with or without modification, are
+    29                           ; permitted provided that the following conditions are met:
+    30                           ; 
+    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    32                           ;        conditions and the following disclaimer.
+    33                           ; 
+    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    35                           ;        of conditions and the following disclaimer in the documentation and/or other
+    36                           ;        materials provided with the distribution. Publication is not required when
+    37                           ;        this file is used in an embedded application.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
+    51                           ; 
+    52                           ; Code-generator required, PIC16F874A Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55     0000                     	;# 
+    56     0001                     	;# 
+    57     0002                     	;# 
+    58     0003                     	;# 
+    59     0004                     	;# 
+    60     0005                     	;# 
+    61     0006                     	;# 
+    62     0007                     	;# 
+    63     0008                     	;# 
+    64     0009                     	;# 
+    65     000A                     	;# 
+    66     000B                     	;# 
+    67     000C                     	;# 
+    68     000D                     	;# 
+    69     000E                     	;# 
+    70     000E                     	;# 
+    71     000F                     	;# 
+    72     0010                     	;# 
+    73     0011                     	;# 
+    74     0012                     	;# 
+    75     0013                     	;# 
+    76     0014                     	;# 
+    77     0015                     	;# 
+    78     0015                     	;# 
+    79     0016                     	;# 
+    80     0017                     	;# 
+    81     0018                     	;# 
+    82     0019                     	;# 
+    83     001A                     	;# 
+    84     001B                     	;# 
+    85     001B                     	;# 
+    86     001C                     	;# 
+    87     001D                     	;# 
+    88     001E                     	;# 
+    89     001F                     	;# 
+    90     0081                     	;# 
+    91     0085                     	;# 
+    92     0086                     	;# 
+    93     0087                     	;# 
+    94     0088                     	;# 
+    95     0089                     	;# 
+    96     008C                     	;# 
+    97     008D                     	;# 
+    98     008E                     	;# 
+    99     0091                     	;# 
+   100     0092                     	;# 
+   101     0093                     	;# 
+   102     0094                     	;# 
+   103     0098                     	;# 
+   104     0099                     	;# 
+   105     009C                     	;# 
+   106     009D                     	;# 
+   107     009E                     	;# 
+   108     009F                     	;# 
+   109     010C                     	;# 
+   110     010D                     	;# 
+   111     010E                     	;# 
+   112     010F                     	;# 
+   113     018C                     	;# 
+   114     018D                     	;# 
+   115     0000                     	;# 
+   116     0001                     	;# 
+   117     0002                     	;# 
+   118     0003                     	;# 
+   119     0004                     	;# 
+   120     0005                     	;# 
+   121     0006                     	;# 
+   122     0007                     	;# 
+   123     0008                     	;# 
+   124     0009                     	;# 
+   125     000A                     	;# 
+   126     000B                     	;# 
+   127     000C                     	;# 
+   128     000D                     	;# 
+   129     000E                     	;# 
+   130     000E                     	;# 
+   131     000F                     	;# 
+   132     0010                     	;# 
+   133     0011                     	;# 
+   134     0012                     	;# 
+   135     0013                     	;# 
+   136     0014                     	;# 
+   137     0015                     	;# 
+   138     0015                     	;# 
+   139     0016                     	;# 
+   140     0017                     	;# 
+   141     0018                     	;# 
+   142     0019                     	;# 
+   143     001A                     	;# 
+   144     001B                     	;# 
+   145     001B                     	;# 
+   146     001C                     	;# 
+   147     001D                     	;# 
+   148     001E                     	;# 
+   149     001F                     	;# 
+   150     0081                     	;# 
+   151     0085                     	;# 
+   152     0086                     	;# 
+   153     0087                     	;# 
+   154     0088                     	;# 
+   155     0089                     	;# 
+   156     008C                     	;# 
+   157     008D                     	;# 
+   158     008E                     	;# 
+   159     0091                     	;# 
+   160     0092                     	;# 
+   161     0093                     	;# 
+   162     0094                     	;# 
+   163     0098                     	;# 
+   164     0099                     	;# 
+   165     009C                     	;# 
+   166     009D                     	;# 
+   167     009E                     	;# 
+   168     009F                     	;# 
+   169     010C                     	;# 
+   170     010D                     	;# 
+   171     010E                     	;# 
+   172     010F                     	;# 
+   173     018C                     	;# 
+   174     018D                     	;# 
+   175     0008                     _PORTDbits	set	8
+   176     0007                     _PORTCbits	set	7
+   177     0087                     _TRISC	set	135
+   178     0086                     _TRISB	set	134
+   179     0085                     _TRISA	set	133
+   180                           
+   181                           	psect	strings
+   182     0002                     __pstrings:
+   183     0002                     stringtab:
+   184     0002                     __stringtab:
+   185     0002                     stringcode:	
+   186                           ;	String table - string pointers are 1 byte each
+   187                           
+   188     0002                     stringdir:
+   189     0002  3000               	movlw	high stringdir
+   190     0003  008A               	movwf	10
+   191     0004  0804               	movf	4,w
+   192     0005  0A84               	incf	4,f
+   193     0006  0782               	addwf	2,f
+   194     0007                     __stringbase:
+   195     0007  3400               	retlw	0
+   196     0008                     __end_of__stringtab:
+   197     0008                     STR_1:
+   198     0008  3450               	retlw	80	;'P'
+   199     0009  3441               	retlw	65	;'A'
+   200     000A  3455               	retlw	85	;'U'
+   201     000B  344C               	retlw	76	;'L'
+   202     000C  3441               	retlw	65	;'A'
+   203     000D  3420               	retlw	32	;' '
+   204     000E  3465               	retlw	101	;'e'
+   205     000F  3420               	retlw	32	;' '
+   206     0010  3452               	retlw	82	;'R'
+   207     0011  3441               	retlw	65	;'A'
+   208     0012  3446               	retlw	70	;'F'
+   209     0013  3441               	retlw	65	;'A'
+   210     0014  3400               	retlw	0
+   211                           
+   212                           	psect	cinit
+   213     07FD                     start_initialization:	
+   214                           ; #config settings
+   215                           
+   216     07FD                     __initialization:
+   217     07FD                     end_of_initialization:	
+   218                           ;End of C runtime variable initialization code
+   219                           
+   220     07FD                     __end_of__initialization:
+   221     07FD  0183               	clrf	3
+   222     07FE  118A  2E10         	ljmp	_main	;jump to C main() function
+   223                           
+   224                           	psect	cstackCOMMON
+   225     0000                     __pcstackCOMMON:
+   226     0000                     ??_ini_display:
+   227     0000                     ??_limpa_disp:	
+   228                           ; 1 bytes @ 0x0
+   229                           
+   230     0000                     ??_tempo_disp:	
+   231                           ; 1 bytes @ 0x0
+   232                           
+   233     0000                     ??_main:	
+   234                           ; 1 bytes @ 0x0
+   235                           
+   236     0000                     ??_posdp:	
+   237                           ; 1 bytes @ 0x0
+   238                           
+   239                           
+   240                           	psect	cstackBANK0
+   241     0020                     __pcstackBANK0:	
+   242                           ; 1 bytes @ 0x0
+   243                           
+   244     0020                     ?_ini_display:
+   245     0020                     ?_limpa_disp:	
+   246                           ; 1 bytes @ 0x0
+   247                           
+   248     0020                     ?_tempo_disp:	
+   249                           ; 1 bytes @ 0x0
+   250                           
+   251     0020                     ?_escrevedp_ini:	
+   252                           ; 1 bytes @ 0x0
+   253                           
+   254     0020                     ?_main:	
+   255                           ; 1 bytes @ 0x0
+   256                           
+   257     0020                     ?_escrevedp:	
+   258                           ; 1 bytes @ 0x0
+   259                           
+   260     0020                     tempo_disp@tempo:	
+   261                           ; 1 bytes @ 0x0
+   262                           
+   263                           
+   264                           ; 2 bytes @ 0x0
+   265     0020                     	ds	2
+   266     0022                     ??_escrevedp_ini:
+   267     0022                     ??_escrevedp:	
+   268                           ; 1 bytes @ 0x2
+   269                           
+   270                           
+   271                           ; 1 bytes @ 0x2
+   272     0022                     	ds	2
+   273     0024                     escrevedp_ini@dado:
+   274     0024                     escrevedp@dado:	
+   275                           ; 1 bytes @ 0x4
+   276                           
+   277                           
+   278                           ; 1 bytes @ 0x4
+   279     0024                     	ds	1
+   280     0025                     ?_posdp:
+   281     0025                     posdp@ValorP:	
+   282                           ; 1 bytes @ 0x5
+   283                           
+   284                           
+   285                           ; 2 bytes @ 0x5
+   286     0025                     	ds	2
+   287     0027                     ?_display:
+   288     0027                     display@posicao:	
+   289                           ; 1 bytes @ 0x7
+   290                           
+   291                           
+   292                           ; 2 bytes @ 0x7
+   293     0027                     	ds	2
+   294     0029                     display@mens:
+   295                           
+   296                           ; 1 bytes @ 0x9
+   297     0029                     	ds	1
+   298     002A                     ??_display:
+   299                           
+   300                           ; 1 bytes @ 0xA
+   301     002A                     	ds	1
+   302     002B                     display@tam_mensagem:
+   303                           
+   304                           ; 1 bytes @ 0xB
+   305     002B                     	ds	1
+   306     002C                     display@cont_posicao:
+   307                           
+   308                           ; 1 bytes @ 0xC
+   309     002C                     	ds	1
+   310     002D                     display@bkp_mensagem:
+   311                           
+   312                           ; 1 bytes @ 0xD
+   313     002D                     	ds	1
+   314     002E                     main@tempo:
+   315                           
+   316                           ; 2 bytes @ 0xE
+   317     002E                     	ds	2
+   318                           
+   319                           	psect	maintext
+   320     0610                     __pmaintext:	
+   321 ;;
+   322 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   323 ;;
+   324 ;; *************** function _main *****************
+   325 ;; Defined at:
+   326 ;;		line 49 in file "newmain.c"
+   327 ;; Parameters:    Size  Location     Type
+   328 ;;		None
+   329 ;; Auto vars:     Size  Location     Type
+   330 ;;  tempo           2   14[BANK0 ] int 
+   331 ;; Return value:  Size  Location     Type
+   332 ;;                  1    wreg      void 
+   333 ;; Registers used:
+   334 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   335 ;; Tracked objects:
+   336 ;;		On entry : B00/0
+   337 ;;		On exit  : 0/0
+   338 ;;		Unchanged: 0/0
+   339 ;; Data sizes:     COMMON   BANK0   BANK1
+   340 ;;      Params:         0       0       0
+   341 ;;      Locals:         0       2       0
+   342 ;;      Temps:          0       0       0
+   343 ;;      Totals:         0       2       0
+   344 ;;Total ram usage:        2 bytes
+   345 ;; Hardware stack levels required when called: 4
+   346 ;; This function calls:
+   347 ;;		_display
+   348 ;;		_ini_display
+   349 ;;		_limpa_disp
+   350 ;; This function is called by:
+   351 ;;		Startup code after reset
+   352 ;; This function uses a non-reentrant model
+   353 ;;
+   354                           
+   355     0610                     _main:	
+   356                           ;psect for function _main
+   357                           
+   358     0610                     l931:	
+   359                           ;incstack = 0
+   360                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   361                           
+   362                           
+   363                           ;newmain.c: 51:     int tempo;;newmain.c: 53:     TRISA = 0x00;
+   364     0610  1683               	bsf	3,5	;RP0=1, select bank1
+   365     0611  1303               	bcf	3,6	;RP1=0, select bank1
+   366     0612  0185               	clrf	5	;volatile
+   367                           
+   368                           ;newmain.c: 54:     TRISB = 0x00;
+   369     0613  0186               	clrf	6	;volatile
+   370                           
+   371                           ;newmain.c: 55:     TRISC = 0x00;
+   372     0614  0187               	clrf	7	;volatile
+   373     0615                     l933:
+   374                           
+   375                           ;newmain.c: 57:     ini_display();
+   376     0615  118A  25C7  118A   	fcall	_ini_display
+   377     0618                     l935:
+   378                           
+   379                           ;newmain.c: 58:  limpa_disp();
+   380     0618  118A  25A4  118A   	fcall	_limpa_disp
+   381     061B                     l937:
+   382                           
+   383                           ;newmain.c: 60:  display(3,"PAULA e RAFA");
+   384     061B  3003               	movlw	3
+   385     061C  1283               	bcf	3,5	;RP0=0, select bank0
+   386     061D  1303               	bcf	3,6	;RP1=0, select bank0
+   387     061E  00A7               	movwf	display@posicao
+   388     061F  3000               	movlw	0
+   389     0620  00A8               	movwf	display@posicao+1
+   390     0621  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   391     0622  00A9               	movwf	display@mens
+   392     0623  118A  2762  118A   	fcall	_display
+   393     0626                     l939:
+   394                           
+   395                           ;newmain.c: 63:     {;newmain.c: 65:         PORTCbits.RC4=0;
+   396     0626  1283               	bcf	3,5	;RP0=0, select bank0
+   397     0627  1303               	bcf	3,6	;RP1=0, select bank0
+   398     0628  1207               	bcf	7,4	;volatile
+   399     0629                     l941:
+   400                           
+   401                           ;newmain.c: 66:         for(tempo=0;tempo<0x3FFF;tempo++) continue;
+   402     0629  01AE               	clrf	main@tempo
+   403     062A  01AF               	clrf	main@tempo+1
+   404     062B                     l947:
+   405     062B  3001               	movlw	1
+   406     062C  1283               	bcf	3,5	;RP0=0, select bank0
+   407     062D  1303               	bcf	3,6	;RP1=0, select bank0
+   408     062E  07AE               	addwf	main@tempo,f
+   409     062F  1803               	skipnc
+   410     0630  0AAF               	incf	main@tempo+1,f
+   411     0631  3000               	movlw	0
+   412     0632  07AF               	addwf	main@tempo+1,f
+   413     0633                     l949:
+   414     0633  082F               	movf	main@tempo+1,w
+   415     0634  3A80               	xorlw	128
+   416     0635  00FF               	movwf	btemp+1
+   417     0636  30BF               	movlw	191
+   418     0637  027F               	subwf	btemp+1,w
+   419     0638  1D03               	skipz
+   420     0639  2E3C               	goto	u355
+   421     063A  30FF               	movlw	255
+   422     063B  022E               	subwf	main@tempo,w
+   423     063C                     u355:
+   424     063C  1C03               	skipc
+   425     063D  2E3F               	goto	u351
+   426     063E  2E40               	goto	u350
+   427     063F                     u351:
+   428     063F  2E2B               	goto	l947
+   429     0640                     u350:
+   430     0640                     l27:
+   431                           
+   432                           ;newmain.c: 67:         PORTCbits.RC4=1;
+   433     0640  1283               	bcf	3,5	;RP0=0, select bank0
+   434     0641  1303               	bcf	3,6	;RP1=0, select bank0
+   435     0642  1607               	bsf	7,4	;volatile
+   436     0643                     l951:
+   437                           
+   438                           ;newmain.c: 68:         for(tempo=0;tempo<0x3FFF;tempo++) continue;
+   439     0643  01AE               	clrf	main@tempo
+   440     0644  01AF               	clrf	main@tempo+1
+   441     0645                     l957:
+   442     0645  3001               	movlw	1
+   443     0646  1283               	bcf	3,5	;RP0=0, select bank0
+   444     0647  1303               	bcf	3,6	;RP1=0, select bank0
+   445     0648  07AE               	addwf	main@tempo,f
+   446     0649  1803               	skipnc
+   447     064A  0AAF               	incf	main@tempo+1,f
+   448     064B  3000               	movlw	0
+   449     064C  07AF               	addwf	main@tempo+1,f
+   450     064D                     l959:
+   451     064D  082F               	movf	main@tempo+1,w
+   452     064E  3A80               	xorlw	128
+   453     064F  00FF               	movwf	btemp+1
+   454     0650  30BF               	movlw	191
+   455     0651  027F               	subwf	btemp+1,w
+   456     0652  1D03               	skipz
+   457     0653  2E56               	goto	u365
+   458     0654  30FF               	movlw	255
+   459     0655  022E               	subwf	main@tempo,w
+   460     0656                     u365:
+   461     0656  1C03               	skipc
+   462     0657  2E59               	goto	u361
+   463     0658  2E5A               	goto	u360
+   464     0659                     u361:
+   465     0659  2E45               	goto	l957
+   466     065A                     u360:
+   467     065A  2E26               	goto	l939
+   468     065B  118A  2800         	ljmp	start
+   469     065D                     __end_of_main:
+   470                           
+   471                           	psect	text1
+   472     05A4                     __ptext1:	
+   473 ;; *************** function _limpa_disp *****************
+   474 ;; Defined at:
+   475 ;;		line 170 in file "newmain.c"
+   476 ;; Parameters:    Size  Location     Type
+   477 ;;		None
+   478 ;; Auto vars:     Size  Location     Type
+   479 ;;		None
+   480 ;; Return value:  Size  Location     Type
+   481 ;;                  1    wreg      void 
+   482 ;; Registers used:
+   483 ;;		wreg, status,2, status,0, pclath, cstack
+   484 ;; Tracked objects:
+   485 ;;		On entry : 0/0
+   486 ;;		On exit  : 0/0
+   487 ;;		Unchanged: 0/0
+   488 ;; Data sizes:     COMMON   BANK0   BANK1
+   489 ;;      Params:         0       0       0
+   490 ;;      Locals:         0       0       0
+   491 ;;      Temps:          0       0       0
+   492 ;;      Totals:         0       0       0
+   493 ;;Total ram usage:        0 bytes
+   494 ;; Hardware stack levels used: 1
+   495 ;; Hardware stack levels required when called: 2
+   496 ;; This function calls:
+   497 ;;		_escrevedp_ini
+   498 ;; This function is called by:
+   499 ;;		_main
+   500 ;; This function uses a non-reentrant model
+   501 ;;
+   502                           
+   503     05A4                     _limpa_disp:	
+   504                           ;psect for function _limpa_disp
+   505                           
+   506     05A4                     l889:	
+   507                           ;incstack = 0
+   508                           ; Regs used in _limpa_disp: [wreg+status,2+status,0+pclath+cstack]
+   509                           
+   510                           
+   511                           ;newmain.c: 172:  PORTDbits.RD2 = 0;
+   512     05A4  1283               	bcf	3,5	;RP0=0, select bank0
+   513     05A5  1303               	bcf	3,6	;RP1=0, select bank0
+   514     05A6  1108               	bcf	8,2	;volatile
+   515     05A7                     l891:
+   516                           
+   517                           ;newmain.c: 173:  escrevedp_ini(0x0);
+   518     05A7  3000               	movlw	0
+   519     05A8  118A  265D  118A   	fcall	_escrevedp_ini
+   520                           
+   521                           ;newmain.c: 174:  escrevedp_ini(0x1);
+   522     05AB  3001               	movlw	1
+   523     05AC  118A  265D  118A   	fcall	_escrevedp_ini
+   524     05AF                     l893:
+   525                           
+   526                           ;newmain.c: 175:  PORTDbits.RD2 = 1;
+   527     05AF  1283               	bcf	3,5	;RP0=0, select bank0
+   528     05B0  1303               	bcf	3,6	;RP1=0, select bank0
+   529     05B1  1508               	bsf	8,2	;volatile
+   530     05B2                     l54:
+   531     05B2  0008               	return
+   532     05B3                     __end_of_limpa_disp:
+   533                           
+   534                           	psect	text2
+   535     05C7                     __ptext2:	
+   536 ;; *************** function _ini_display *****************
+   537 ;; Defined at:
+   538 ;;		line 74 in file "newmain.c"
+   539 ;; Parameters:    Size  Location     Type
+   540 ;;		None
+   541 ;; Auto vars:     Size  Location     Type
+   542 ;;		None
+   543 ;; Return value:  Size  Location     Type
+   544 ;;                  1    wreg      void 
+   545 ;; Registers used:
+   546 ;;		wreg, status,2, status,0, pclath, cstack
+   547 ;; Tracked objects:
+   548 ;;		On entry : 0/0
+   549 ;;		On exit  : 0/0
+   550 ;;		Unchanged: 0/0
+   551 ;; Data sizes:     COMMON   BANK0   BANK1
+   552 ;;      Params:         0       0       0
+   553 ;;      Locals:         0       0       0
+   554 ;;      Temps:          0       0       0
+   555 ;;      Totals:         0       0       0
+   556 ;;Total ram usage:        0 bytes
+   557 ;; Hardware stack levels used: 1
+   558 ;; Hardware stack levels required when called: 2
+   559 ;; This function calls:
+   560 ;;		_escrevedp_ini
+   561 ;;		_tempo_disp
+   562 ;; This function is called by:
+   563 ;;		_main
+   564 ;; This function uses a non-reentrant model
+   565 ;;
+   566                           
+   567     05C7                     _ini_display:	
+   568                           ;psect for function _ini_display
+   569                           
+   570     05C7                     l883:	
+   571                           ;incstack = 0
+   572                           ; Regs used in _ini_display: [wreg+status,2+status,0+pclath+cstack]
+   573                           
+   574                           
+   575                           ;newmain.c: 76:  PORTDbits.RD1 = 0;
+   576     05C7  1283               	bcf	3,5	;RP0=0, select bank0
+   577     05C8  1303               	bcf	3,6	;RP1=0, select bank0
+   578     05C9  1088               	bcf	8,1	;volatile
+   579                           
+   580                           ;newmain.c: 77:  PORTDbits.RD2 = 0;
+   581     05CA  1108               	bcf	8,2	;volatile
+   582                           
+   583                           ;newmain.c: 79:     PORTDbits.RD3 = 0;
+   584     05CB  1188               	bcf	8,3	;volatile
+   585                           
+   586                           ;newmain.c: 80:     PORTDbits.RD4 = 0;
+   587     05CC  1208               	bcf	8,4	;volatile
+   588                           
+   589                           ;newmain.c: 81:     PORTDbits.RD5 = 0;
+   590     05CD  1288               	bcf	8,5	;volatile
+   591                           
+   592                           ;newmain.c: 82:     PORTDbits.RD6 = 0;
+   593     05CE  1308               	bcf	8,6	;volatile
+   594                           
+   595                           ;newmain.c: 83:     PORTDbits.RD7 = 0;
+   596     05CF  1388               	bcf	8,7	;volatile
+   597     05D0                     l885:
+   598                           
+   599                           ;newmain.c: 85:  tempo_disp();
+   600     05D0  118A  25B3  118A   	fcall	_tempo_disp
+   601                           
+   602                           ;newmain.c: 86:  tempo_disp();
+   603     05D3  118A  25B3  118A   	fcall	_tempo_disp
+   604                           
+   605                           ;newmain.c: 87:  tempo_disp();
+   606     05D6  118A  25B3  118A   	fcall	_tempo_disp
+   607                           
+   608                           ;newmain.c: 88:  tempo_disp();
+   609     05D9  118A  25B3  118A   	fcall	_tempo_disp
+   610                           
+   611                           ;newmain.c: 90:     escrevedp_ini(0x3);
+   612     05DC  3003               	movlw	3
+   613     05DD  118A  265D  118A   	fcall	_escrevedp_ini
+   614                           
+   615                           ;newmain.c: 91:     escrevedp_ini(0x3);
+   616     05E0  3003               	movlw	3
+   617     05E1  118A  265D  118A   	fcall	_escrevedp_ini
+   618                           
+   619                           ;newmain.c: 92:  escrevedp_ini(0x3);
+   620     05E4  3003               	movlw	3
+   621     05E5  118A  265D  118A   	fcall	_escrevedp_ini
+   622                           
+   623                           ;newmain.c: 93:  escrevedp_ini(0x2);
+   624     05E8  3002               	movlw	2
+   625     05E9  118A  265D  118A   	fcall	_escrevedp_ini
+   626                           
+   627                           ;newmain.c: 94:  escrevedp_ini(0x2);
+   628     05EC  3002               	movlw	2
+   629     05ED  118A  265D  118A   	fcall	_escrevedp_ini
+   630                           
+   631                           ;newmain.c: 95:  escrevedp_ini(0x8);
+   632     05F0  3008               	movlw	8
+   633     05F1  118A  265D  118A   	fcall	_escrevedp_ini
+   634                           
+   635                           ;newmain.c: 96:  escrevedp_ini(0x0);
+   636     05F4  3000               	movlw	0
+   637     05F5  118A  265D  118A   	fcall	_escrevedp_ini
+   638                           
+   639                           ;newmain.c: 97:  escrevedp_ini(0xC);
+   640     05F8  300C               	movlw	12
+   641     05F9  118A  265D  118A   	fcall	_escrevedp_ini
+   642                           
+   643                           ;newmain.c: 98:  escrevedp_ini(0x0);
+   644     05FC  3000               	movlw	0
+   645     05FD  118A  265D  118A   	fcall	_escrevedp_ini
+   646                           
+   647                           ;newmain.c: 99:  escrevedp_ini(0x1);
+   648     0600  3001               	movlw	1
+   649     0601  118A  265D  118A   	fcall	_escrevedp_ini
+   650                           
+   651                           ;newmain.c: 100:  escrevedp_ini(0x0);
+   652     0604  3000               	movlw	0
+   653     0605  118A  265D  118A   	fcall	_escrevedp_ini
+   654                           
+   655                           ;newmain.c: 101:  escrevedp_ini(0x6);
+   656     0608  3006               	movlw	6
+   657     0609  118A  265D  118A   	fcall	_escrevedp_ini
+   658     060C                     l887:
+   659                           
+   660                           ;newmain.c: 103:  PORTDbits.RD2 = 1;
+   661     060C  1283               	bcf	3,5	;RP0=0, select bank0
+   662     060D  1303               	bcf	3,6	;RP1=0, select bank0
+   663     060E  1508               	bsf	8,2	;volatile
+   664     060F                     l36:
+   665     060F  0008               	return
+   666     0610                     __end_of_ini_display:
+   667                           
+   668                           	psect	text3
+   669     065D                     __ptext3:	
+   670 ;; *************** function _escrevedp_ini *****************
+   671 ;; Defined at:
+   672 ;;		line 113 in file "newmain.c"
+   673 ;; Parameters:    Size  Location     Type
+   674 ;;  dado            1    wreg     unsigned char 
+   675 ;; Auto vars:     Size  Location     Type
+   676 ;;  dado            1    4[BANK0 ] unsigned char 
+   677 ;; Return value:  Size  Location     Type
+   678 ;;                  1    wreg      void 
+   679 ;; Registers used:
+   680 ;;		wreg, status,2, status,0, pclath, cstack
+   681 ;; Tracked objects:
+   682 ;;		On entry : 0/0
+   683 ;;		On exit  : 0/0
+   684 ;;		Unchanged: 0/0
+   685 ;; Data sizes:     COMMON   BANK0   BANK1
+   686 ;;      Params:         0       0       0
+   687 ;;      Locals:         0       1       0
+   688 ;;      Temps:          0       2       0
+   689 ;;      Totals:         0       3       0
+   690 ;;Total ram usage:        3 bytes
+   691 ;; Hardware stack levels used: 1
+   692 ;; Hardware stack levels required when called: 1
+   693 ;; This function calls:
+   694 ;;		_tempo_disp
+   695 ;; This function is called by:
+   696 ;;		_ini_display
+   697 ;;		_limpa_disp
+   698 ;; This function uses a non-reentrant model
+   699 ;;
+   700                           
+   701     065D                     _escrevedp_ini:	
+   702                           ;psect for function _escrevedp_ini
+   703                           
+   704                           
+   705                           ;incstack = 0
+   706                           ; Regs used in _escrevedp_ini: [wreg+status,2+status,0+pclath+cstack]
+   707                           ;escrevedp_ini@dado stored from wreg
+   708     065D  1283               	bcf	3,5	;RP0=0, select bank0
+   709     065E  1303               	bcf	3,6	;RP1=0, select bank0
+   710     065F  00A4               	movwf	escrevedp_ini@dado
+   711     0660                     l841:
+   712                           
+   713                           ;newmain.c: 113: void escrevedp_ini(char dado);newmain.c: 114: {;newmain.c: 115:     POR
+      +                          TDbits.RD7 = (dado&0x8)>>3;
+   714     0660  0824               	movf	escrevedp_ini@dado,w
+   715     0661  00A2               	movwf	??_escrevedp_ini
+   716     0662  3003               	movlw	3
+   717     0663                     u265:
+   718     0663  1003               	clrc
+   719     0664  0CA2               	rrf	??_escrevedp_ini,f
+   720     0665  3EFF               	addlw	-1
+   721     0666  1D03               	skipz
+   722     0667  2E63               	goto	u265
+   723     0668  0822               	movf	??_escrevedp_ini,w
+   724     0669  3901               	andlw	1
+   725     066A  00A3               	movwf	??_escrevedp_ini+1
+   726     066B  0CA3               	rrf	??_escrevedp_ini+1,f
+   727     066C  0CA3               	rrf	??_escrevedp_ini+1,f
+   728     066D  0808               	movf	8,w	;volatile
+   729     066E  0623               	xorwf	??_escrevedp_ini+1,w
+   730     066F  397F               	andlw	-129
+   731     0670  0623               	xorwf	??_escrevedp_ini+1,w
+   732     0671  0088               	movwf	8	;volatile
+   733                           
+   734                           ;newmain.c: 116:     PORTDbits.RD6 = (dado&0x4)>>2;
+   735     0672  0824               	movf	escrevedp_ini@dado,w
+   736     0673  00A2               	movwf	??_escrevedp_ini
+   737     0674  3002               	movlw	2
+   738     0675                     u275:
+   739     0675  1003               	clrc
+   740     0676  0CA2               	rrf	??_escrevedp_ini,f
+   741     0677  3EFF               	addlw	-1
+   742     0678  1D03               	skipz
+   743     0679  2E75               	goto	u275
+   744     067A  0822               	movf	??_escrevedp_ini,w
+   745     067B  3901               	andlw	1
+   746     067C  00A3               	movwf	??_escrevedp_ini+1
+   747     067D  0EA3               	swapf	??_escrevedp_ini+1,f
+   748     067E  0DA3               	rlf	??_escrevedp_ini+1,f
+   749     067F  0DA3               	rlf	??_escrevedp_ini+1,f
+   750     0680  0808               	movf	8,w	;volatile
+   751     0681  0623               	xorwf	??_escrevedp_ini+1,w
+   752     0682  39BF               	andlw	-65
+   753     0683  0623               	xorwf	??_escrevedp_ini+1,w
+   754     0684  0088               	movwf	8	;volatile
+   755                           
+   756                           ;newmain.c: 117:     PORTDbits.RD5 = (dado&0x2)>>1;
+   757     0685  0824               	movf	escrevedp_ini@dado,w
+   758     0686  00A2               	movwf	??_escrevedp_ini
+   759     0687  1003               	clrc
+   760     0688  0C22               	rrf	??_escrevedp_ini,w
+   761     0689  3901               	andlw	1
+   762     068A  00A3               	movwf	??_escrevedp_ini+1
+   763     068B  0EA3               	swapf	??_escrevedp_ini+1,f
+   764     068C  0DA3               	rlf	??_escrevedp_ini+1,f
+   765     068D  0808               	movf	8,w	;volatile
+   766     068E  0623               	xorwf	??_escrevedp_ini+1,w
+   767     068F  39DF               	andlw	-33
+   768     0690  0623               	xorwf	??_escrevedp_ini+1,w
+   769     0691  0088               	movwf	8	;volatile
+   770                           
+   771                           ;newmain.c: 118:     PORTDbits.RD4 = (dado&0x1);
+   772     0692  0824               	movf	escrevedp_ini@dado,w
+   773     0693  3901               	andlw	1
+   774     0694  00A2               	movwf	??_escrevedp_ini
+   775     0695  0EA2               	swapf	??_escrevedp_ini,f
+   776     0696  0808               	movf	8,w	;volatile
+   777     0697  0622               	xorwf	??_escrevedp_ini,w
+   778     0698  39EF               	andlw	-17
+   779     0699  0622               	xorwf	??_escrevedp_ini,w
+   780     069A  0088               	movwf	8	;volatile
+   781     069B                     l843:
+   782                           
+   783                           ;newmain.c: 120:  tempo_disp();
+   784     069B  118A  25B3  118A   	fcall	_tempo_disp
+   785     069E                     l845:
+   786                           
+   787                           ;newmain.c: 121:  tempo_disp();
+   788     069E  118A  25B3  118A   	fcall	_tempo_disp
+   789     06A1                     l847:
+   790                           
+   791                           ;newmain.c: 122:  tempo_disp();
+   792     06A1  118A  25B3  118A   	fcall	_tempo_disp
+   793     06A4                     l849:
+   794                           
+   795                           ;newmain.c: 123:  tempo_disp();
+   796     06A4  118A  25B3  118A   	fcall	_tempo_disp
+   797     06A7                     l851:
+   798                           
+   799                           ;newmain.c: 124:  tempo_disp();
+   800     06A7  118A  25B3  118A   	fcall	_tempo_disp
+   801     06AA                     l853:
+   802                           
+   803                           ;newmain.c: 126:     PORTDbits.RD3=1;
+   804     06AA  1283               	bcf	3,5	;RP0=0, select bank0
+   805     06AB  1303               	bcf	3,6	;RP1=0, select bank0
+   806     06AC  1588               	bsf	8,3	;volatile
+   807     06AD                     l855:
+   808                           
+   809                           ;newmain.c: 128:  tempo_disp();
+   810     06AD  118A  25B3  118A   	fcall	_tempo_disp
+   811     06B0                     l857:
+   812                           
+   813                           ;newmain.c: 129:  tempo_disp();
+   814     06B0  118A  25B3  118A   	fcall	_tempo_disp
+   815     06B3                     l859:
+   816                           
+   817                           ;newmain.c: 130:  tempo_disp();
+   818     06B3  118A  25B3  118A   	fcall	_tempo_disp
+   819     06B6                     l861:
+   820                           
+   821                           ;newmain.c: 131:  tempo_disp();
+   822     06B6  118A  25B3  118A   	fcall	_tempo_disp
+   823     06B9                     l863:
+   824                           
+   825                           ;newmain.c: 132:  tempo_disp();
+   826     06B9  118A  25B3  118A   	fcall	_tempo_disp
+   827     06BC                     l865:
+   828                           
+   829                           ;newmain.c: 134:     PORTDbits.RD3 =0;
+   830     06BC  1283               	bcf	3,5	;RP0=0, select bank0
+   831     06BD  1303               	bcf	3,6	;RP1=0, select bank0
+   832     06BE  1188               	bcf	8,3	;volatile
+   833     06BF                     l867:
+   834                           
+   835                           ;newmain.c: 136:  tempo_disp();
+   836     06BF  118A  25B3  118A   	fcall	_tempo_disp
+   837     06C2                     l869:
+   838                           
+   839                           ;newmain.c: 137:  tempo_disp();
+   840     06C2  118A  25B3  118A   	fcall	_tempo_disp
+   841     06C5                     l871:
+   842                           
+   843                           ;newmain.c: 138:  tempo_disp();
+   844     06C5  118A  25B3  118A   	fcall	_tempo_disp
+   845     06C8                     l873:
+   846                           
+   847                           ;newmain.c: 139:  tempo_disp();
+   848     06C8  118A  25B3  118A   	fcall	_tempo_disp
+   849     06CB                     l875:
+   850                           
+   851                           ;newmain.c: 140:  tempo_disp();
+   852     06CB  118A  25B3  118A   	fcall	_tempo_disp
+   853     06CE                     l45:
+   854     06CE  0008               	return
+   855     06CF                     __end_of_escrevedp_ini:
+   856                           
+   857                           	psect	text4
+   858     0762                     __ptext4:	
+   859 ;; *************** function _display *****************
+   860 ;; Defined at:
+   861 ;;		line 178 in file "newmain.c"
+   862 ;; Parameters:    Size  Location     Type
+   863 ;;  posicao         2    7[BANK0 ] int 
+   864 ;;  mens            1    9[BANK0 ] PTR unsigned char 
+   865 ;;		 -> STR_1(13), 
+   866 ;; Auto vars:     Size  Location     Type
+   867 ;;  bkp_mensagem    1   13[BANK0 ] PTR unsigned char 
+   868 ;;		 -> STR_1(13), 
+   869 ;;  cont_posicao    1   12[BANK0 ] unsigned char 
+   870 ;;  tam_mensagem    1   11[BANK0 ] unsigned char 
+   871 ;; Return value:  Size  Location     Type
+   872 ;;                  1    wreg      void 
+   873 ;; Registers used:
+   874 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   875 ;; Tracked objects:
+   876 ;;		On entry : 0/0
+   877 ;;		On exit  : 0/0
+   878 ;;		Unchanged: 0/0
+   879 ;; Data sizes:     COMMON   BANK0   BANK1
+   880 ;;      Params:         0       3       0
+   881 ;;      Locals:         0       3       0
+   882 ;;      Temps:          0       1       0
+   883 ;;      Totals:         0       7       0
+   884 ;;Total ram usage:        7 bytes
+   885 ;; Hardware stack levels used: 1
+   886 ;; Hardware stack levels required when called: 3
+   887 ;; This function calls:
+   888 ;;		_escrevedp
+   889 ;;		_posdp
+   890 ;; This function is called by:
+   891 ;;		_main
+   892 ;; This function uses a non-reentrant model
+   893 ;;
+   894                           
+   895     0762                     _display:	
+   896                           ;psect for function _display
+   897                           
+   898     0762                     l895:	
+   899                           ;incstack = 0
+   900                           ; Regs used in _display: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   901                           
+   902                           
+   903                           ;newmain.c: 178: void display(int posicao, char *mens);newmain.c: 179: {;newmain.c: 181:
+      +                            unsigned char cont_posicao;;newmain.c: 182:  unsigned char tam_mensagem;;newmain.c: 18
+      +                          3:  char *bkp_mensagem;;newmain.c: 185:  tam_mensagem = 0;
+   904     0762  1283               	bcf	3,5	;RP0=0, select bank0
+   905     0763  1303               	bcf	3,6	;RP1=0, select bank0
+   906     0764  01AB               	clrf	display@tam_mensagem
+   907     0765                     l897:
+   908                           
+   909                           ;newmain.c: 187:  bkp_mensagem = mens;
+   910     0765  0829               	movf	display@mens,w
+   911     0766  00AD               	movwf	display@bkp_mensagem
+   912                           
+   913                           ;newmain.c: 190:  while((*bkp_mensagem)!=0)
+   914     0767  2F70               	goto	l901
+   915     0768                     l899:
+   916                           
+   917                           ;newmain.c: 191:  {;newmain.c: 193:      bkp_mensagem++;
+   918     0768  3001               	movlw	1
+   919     0769  00AA               	movwf	??_display
+   920     076A  082A               	movf	??_display,w
+   921     076B  07AD               	addwf	display@bkp_mensagem,f
+   922                           
+   923                           ;newmain.c: 194:   tam_mensagem++;
+   924     076C  3001               	movlw	1
+   925     076D  00AA               	movwf	??_display
+   926     076E  082A               	movf	??_display,w
+   927     076F  07AB               	addwf	display@tam_mensagem,f
+   928     0770                     l901:
+   929                           
+   930                           ;newmain.c: 190:  while((*bkp_mensagem)!=0)
+   931     0770  082D               	movf	display@bkp_mensagem,w
+   932     0771  0084               	movwf	4
+   933     0772  118A  2002  118A   	fcall	stringdir
+   934     0775  3A00               	xorlw	0
+   935     0776  1D03               	skipz
+   936     0777  2F79               	goto	u281
+   937     0778  2F7A               	goto	u280
+   938     0779                     u281:
+   939     0779  2F68               	goto	l899
+   940     077A                     u280:
+   941     077A                     l903:
+   942                           
+   943                           ;newmain.c: 198:  if(posicao>=1 && posicao<=16)
+   944     077A  0828               	movf	display@posicao+1,w
+   945     077B  3A80               	xorlw	128
+   946     077C  00FF               	movwf	btemp+1
+   947     077D  3080               	movlw	128
+   948     077E  027F               	subwf	btemp+1,w
+   949     077F  1D03               	skipz
+   950     0780  2F83               	goto	u295
+   951     0781  3001               	movlw	1
+   952     0782  0227               	subwf	display@posicao,w
+   953     0783                     u295:
+   954     0783  1C03               	skipc
+   955     0784  2F86               	goto	u291
+   956     0785  2F87               	goto	u290
+   957     0786                     u291:
+   958     0786  2FA1               	goto	l909
+   959     0787                     u290:
+   960     0787                     l905:
+   961     0787  1283               	bcf	3,5	;RP0=0, select bank0
+   962     0788  1303               	bcf	3,6	;RP1=0, select bank0
+   963     0789  0828               	movf	display@posicao+1,w
+   964     078A  3A80               	xorlw	128
+   965     078B  00FF               	movwf	btemp+1
+   966     078C  3080               	movlw	128
+   967     078D  027F               	subwf	btemp+1,w
+   968     078E  1D03               	skipz
+   969     078F  2F92               	goto	u305
+   970     0790  3011               	movlw	17
+   971     0791  0227               	subwf	display@posicao,w
+   972     0792                     u305:
+   973     0792  1803               	skipnc
+   974     0793  2F95               	goto	u301
+   975     0794  2F96               	goto	u300
+   976     0795                     u301:
+   977     0795  2FA1               	goto	l909
+   978     0796                     u300:
+   979     0796                     l907:
+   980                           
+   981                           ;newmain.c: 199:   posicao= (posicao-1) + 0x80;
+   982     0796  1283               	bcf	3,5	;RP0=0, select bank0
+   983     0797  1303               	bcf	3,6	;RP1=0, select bank0
+   984     0798  0827               	movf	display@posicao,w
+   985     0799  3E7F               	addlw	127
+   986     079A  00A7               	movwf	display@posicao
+   987     079B  0828               	movf	display@posicao+1,w
+   988     079C  1803               	skipnc
+   989     079D  3E01               	addlw	1
+   990     079E  3E00               	addlw	0
+   991     079F  00A8               	movwf	display@posicao+1
+   992     07A0  2FC9               	goto	l915
+   993     07A1                     l909:
+   994     07A1  1283               	bcf	3,5	;RP0=0, select bank0
+   995     07A2  1303               	bcf	3,6	;RP1=0, select bank0
+   996     07A3  0828               	movf	display@posicao+1,w
+   997     07A4  3A80               	xorlw	128
+   998     07A5  00FF               	movwf	btemp+1
+   999     07A6  3080               	movlw	128
+  1000     07A7  027F               	subwf	btemp+1,w
+  1001     07A8  1D03               	skipz
+  1002     07A9  2FAC               	goto	u315
+  1003     07AA  3011               	movlw	17
+  1004     07AB  0227               	subwf	display@posicao,w
+  1005     07AC                     u315:
+  1006     07AC  1C03               	skipc
+  1007     07AD  2FAF               	goto	u311
+  1008     07AE  2FB0               	goto	u310
+  1009     07AF                     u311:
+  1010     07AF  2FFC               	goto	l64
+  1011     07B0                     u310:
+  1012     07B0                     l911:
+  1013     07B0  1283               	bcf	3,5	;RP0=0, select bank0
+  1014     07B1  1303               	bcf	3,6	;RP1=0, select bank0
+  1015     07B2  0828               	movf	display@posicao+1,w
+  1016     07B3  3A80               	xorlw	128
+  1017     07B4  00FF               	movwf	btemp+1
+  1018     07B5  3080               	movlw	128
+  1019     07B6  027F               	subwf	btemp+1,w
+  1020     07B7  1D03               	skipz
+  1021     07B8  2FBB               	goto	u325
+  1022     07B9  3021               	movlw	33
+  1023     07BA  0227               	subwf	display@posicao,w
+  1024     07BB                     u325:
+  1025     07BB  1803               	skipnc
+  1026     07BC  2FBE               	goto	u321
+  1027     07BD  2FBF               	goto	u320
+  1028     07BE                     u321:
+  1029     07BE  2FFC               	goto	l64
+  1030     07BF                     u320:
+  1031     07BF                     l913:
+  1032                           
+  1033                           ;newmain.c: 201:   posicao= (posicao-17) + 0xC0;
+  1034     07BF  1283               	bcf	3,5	;RP0=0, select bank0
+  1035     07C0  1303               	bcf	3,6	;RP1=0, select bank0
+  1036     07C1  0827               	movf	display@posicao,w
+  1037     07C2  3EAF               	addlw	175
+  1038     07C3  00A7               	movwf	display@posicao
+  1039     07C4  0828               	movf	display@posicao+1,w
+  1040     07C5  1803               	skipnc
+  1041     07C6  3E01               	addlw	1
+  1042     07C7  3E00               	addlw	0
+  1043     07C8  00A8               	movwf	display@posicao+1
+  1044     07C9                     l915:
+  1045                           
+  1046                           ;newmain.c: 205:  cont_posicao=0;
+  1047     07C9  01AC               	clrf	display@cont_posicao
+  1048                           
+  1049                           ;newmain.c: 207:  while((*mens)!=0 && (cont_posicao<17))
+  1050     07CA  2FEC               	goto	l927
+  1051     07CB                     l917:
+  1052                           
+  1053                           ;newmain.c: 208:  {;newmain.c: 210:   posdp(posicao);
+  1054     07CB  0828               	movf	display@posicao+1,w
+  1055     07CC  00A6               	movwf	posdp@ValorP+1
+  1056     07CD  0827               	movf	display@posicao,w
+  1057     07CE  00A5               	movwf	posdp@ValorP
+  1058     07CF  118A  2599  118A   	fcall	_posdp
+  1059     07D2                     l919:
+  1060                           
+  1061                           ;newmain.c: 211:   posicao++;
+  1062     07D2  3001               	movlw	1
+  1063     07D3  1283               	bcf	3,5	;RP0=0, select bank0
+  1064     07D4  1303               	bcf	3,6	;RP1=0, select bank0
+  1065     07D5  07A7               	addwf	display@posicao,f
+  1066     07D6  1803               	skipnc
+  1067     07D7  0AA8               	incf	display@posicao+1,f
+  1068     07D8  3000               	movlw	0
+  1069     07D9  07A8               	addwf	display@posicao+1,f
+  1070     07DA                     l921:
+  1071                           
+  1072                           ;newmain.c: 212:   cont_posicao++;
+  1073     07DA  3001               	movlw	1
+  1074     07DB  00AA               	movwf	??_display
+  1075     07DC  082A               	movf	??_display,w
+  1076     07DD  07AC               	addwf	display@cont_posicao,f
+  1077     07DE                     l923:
+  1078                           
+  1079                           ;newmain.c: 214:   escrevedp(*mens);
+  1080     07DE  0829               	movf	display@mens,w
+  1081     07DF  0084               	movwf	4
+  1082     07E0  118A  2002  118A   	fcall	stringdir
+  1083     07E3  118A  26CF  118A   	fcall	_escrevedp
+  1084     07E6                     l925:
+  1085                           
+  1086                           ;newmain.c: 215:      mens++;
+  1087     07E6  3001               	movlw	1
+  1088     07E7  1283               	bcf	3,5	;RP0=0, select bank0
+  1089     07E8  1303               	bcf	3,6	;RP1=0, select bank0
+  1090     07E9  00AA               	movwf	??_display
+  1091     07EA  082A               	movf	??_display,w
+  1092     07EB  07A9               	addwf	display@mens,f
+  1093     07EC                     l927:
+  1094                           
+  1095                           ;newmain.c: 207:  while((*mens)!=0 && (cont_posicao<17))
+  1096     07EC  0829               	movf	display@mens,w
+  1097     07ED  0084               	movwf	4
+  1098     07EE  118A  2002  118A   	fcall	stringdir
+  1099     07F1  3A00               	xorlw	0
+  1100     07F2  1903               	skipnz
+  1101     07F3  2FF5               	goto	u331
+  1102     07F4  2FF6               	goto	u330
+  1103     07F5                     u331:
+  1104     07F5  2FFC               	goto	l64
+  1105     07F6                     u330:
+  1106     07F6                     l929:
+  1107     07F6  3011               	movlw	17
+  1108     07F7  022C               	subwf	display@cont_posicao,w
+  1109     07F8  1C03               	skipc
+  1110     07F9  2FFB               	goto	u341
+  1111     07FA  2FFC               	goto	u340
+  1112     07FB                     u341:
+  1113     07FB  2FCB               	goto	l917
+  1114     07FC                     u340:
+  1115     07FC                     l64:
+  1116     07FC  0008               	return
+  1117     07FD                     __end_of_display:
+  1118                           
+  1119                           	psect	text5
+  1120     0599                     __ptext5:	
+  1121 ;; *************** function _posdp *****************
+  1122 ;; Defined at:
+  1123 ;;		line 164 in file "newmain.c"
+  1124 ;; Parameters:    Size  Location     Type
+  1125 ;;  ValorP          2    5[BANK0 ] int 
+  1126 ;; Auto vars:     Size  Location     Type
+  1127 ;;		None
+  1128 ;; Return value:  Size  Location     Type
+  1129 ;;                  1    wreg      void 
+  1130 ;; Registers used:
+  1131 ;;		wreg, status,2, status,0, pclath, cstack
+  1132 ;; Tracked objects:
+  1133 ;;		On entry : 0/0
+  1134 ;;		On exit  : 0/0
+  1135 ;;		Unchanged: 0/0
+  1136 ;; Data sizes:     COMMON   BANK0   BANK1
+  1137 ;;      Params:         0       2       0
+  1138 ;;      Locals:         0       0       0
+  1139 ;;      Temps:          0       0       0
+  1140 ;;      Totals:         0       2       0
+  1141 ;;Total ram usage:        2 bytes
+  1142 ;; Hardware stack levels used: 1
+  1143 ;; Hardware stack levels required when called: 2
+  1144 ;; This function calls:
+  1145 ;;		_escrevedp
+  1146 ;; This function is called by:
+  1147 ;;		_display
+  1148 ;; This function uses a non-reentrant model
+  1149 ;;
+  1150                           
+  1151     0599                     _posdp:	
+  1152                           ;psect for function _posdp
+  1153                           
+  1154     0599                     l877:	
+  1155                           ;incstack = 0
+  1156                           ; Regs used in _posdp: [wreg+status,2+status,0+pclath+cstack]
+  1157                           
+  1158                           
+  1159                           ;newmain.c: 164: void posdp(int ValorP);newmain.c: 165: {;newmain.c: 166:  PORTDbits.RD2
+      +                           = 0;
+  1160     0599  1283               	bcf	3,5	;RP0=0, select bank0
+  1161     059A  1303               	bcf	3,6	;RP1=0, select bank0
+  1162     059B  1108               	bcf	8,2	;volatile
+  1163     059C                     l879:
+  1164                           
+  1165                           ;newmain.c: 167:  escrevedp(ValorP);
+  1166     059C  0825               	movf	posdp@ValorP,w
+  1167     059D  118A  26CF  118A   	fcall	_escrevedp
+  1168     05A0                     l881:
+  1169                           
+  1170                           ;newmain.c: 168:  PORTDbits.RD2 = 1;
+  1171     05A0  1283               	bcf	3,5	;RP0=0, select bank0
+  1172     05A1  1303               	bcf	3,6	;RP1=0, select bank0
+  1173     05A2  1508               	bsf	8,2	;volatile
+  1174     05A3                     l51:
+  1175     05A3  0008               	return
+  1176     05A4                     __end_of_posdp:
+  1177                           
+  1178                           	psect	text6
+  1179     06CF                     __ptext6:	
+  1180 ;; *************** function _escrevedp *****************
+  1181 ;; Defined at:
+  1182 ;;		line 143 in file "newmain.c"
+  1183 ;; Parameters:    Size  Location     Type
+  1184 ;;  dado            1    wreg     unsigned char 
+  1185 ;; Auto vars:     Size  Location     Type
+  1186 ;;  dado            1    4[BANK0 ] unsigned char 
+  1187 ;; Return value:  Size  Location     Type
+  1188 ;;                  1    wreg      void 
+  1189 ;; Registers used:
+  1190 ;;		wreg, status,2, status,0, pclath, cstack
+  1191 ;; Tracked objects:
+  1192 ;;		On entry : 0/0
+  1193 ;;		On exit  : 0/0
+  1194 ;;		Unchanged: 0/0
+  1195 ;; Data sizes:     COMMON   BANK0   BANK1
+  1196 ;;      Params:         0       0       0
+  1197 ;;      Locals:         0       1       0
+  1198 ;;      Temps:          0       2       0
+  1199 ;;      Totals:         0       3       0
+  1200 ;;Total ram usage:        3 bytes
+  1201 ;; Hardware stack levels used: 1
+  1202 ;; Hardware stack levels required when called: 1
+  1203 ;; This function calls:
+  1204 ;;		_tempo_disp
+  1205 ;; This function is called by:
+  1206 ;;		_posdp
+  1207 ;;		_display
+  1208 ;; This function uses a non-reentrant model
+  1209 ;;
+  1210                           
+  1211     06CF                     _escrevedp:	
+  1212                           ;psect for function _escrevedp
+  1213                           
+  1214                           
+  1215                           ;incstack = 0
+  1216                           ; Regs used in _escrevedp: [wreg+status,2+status,0+pclath+cstack]
+  1217                           ;escrevedp@dado stored from wreg
+  1218     06CF  1283               	bcf	3,5	;RP0=0, select bank0
+  1219     06D0  1303               	bcf	3,6	;RP1=0, select bank0
+  1220     06D1  00A4               	movwf	escrevedp@dado
+  1221     06D2                     l819:
+  1222                           
+  1223                           ;newmain.c: 143: void escrevedp(char dado);newmain.c: 144: {;newmain.c: 145:     PORTDbi
+      +                          ts.RD7 = (dado&0x80)>>7;
+  1224     06D2  0824               	movf	escrevedp@dado,w
+  1225     06D3  00A2               	movwf	??_escrevedp
+  1226     06D4  3007               	movlw	7
+  1227     06D5                     u205:
+  1228     06D5  1003               	clrc
+  1229     06D6  0CA2               	rrf	??_escrevedp,f
+  1230     06D7  3EFF               	addlw	-1
+  1231     06D8  1D03               	skipz
+  1232     06D9  2ED5               	goto	u205
+  1233     06DA  0822               	movf	??_escrevedp,w
+  1234     06DB  3901               	andlw	1
+  1235     06DC  00A3               	movwf	??_escrevedp+1
+  1236     06DD  0CA3               	rrf	??_escrevedp+1,f
+  1237     06DE  0CA3               	rrf	??_escrevedp+1,f
+  1238     06DF  0808               	movf	8,w	;volatile
+  1239     06E0  0623               	xorwf	??_escrevedp+1,w
+  1240     06E1  397F               	andlw	-129
+  1241     06E2  0623               	xorwf	??_escrevedp+1,w
+  1242     06E3  0088               	movwf	8	;volatile
+  1243                           
+  1244                           ;newmain.c: 146:     PORTDbits.RD6 = (dado&0x40)>>6;
+  1245     06E4  0824               	movf	escrevedp@dado,w
+  1246     06E5  00A2               	movwf	??_escrevedp
+  1247     06E6  3006               	movlw	6
+  1248     06E7                     u215:
+  1249     06E7  1003               	clrc
+  1250     06E8  0CA2               	rrf	??_escrevedp,f
+  1251     06E9  3EFF               	addlw	-1
+  1252     06EA  1D03               	skipz
+  1253     06EB  2EE7               	goto	u215
+  1254     06EC  0822               	movf	??_escrevedp,w
+  1255     06ED  3901               	andlw	1
+  1256     06EE  00A3               	movwf	??_escrevedp+1
+  1257     06EF  0EA3               	swapf	??_escrevedp+1,f
+  1258     06F0  0DA3               	rlf	??_escrevedp+1,f
+  1259     06F1  0DA3               	rlf	??_escrevedp+1,f
+  1260     06F2  0808               	movf	8,w	;volatile
+  1261     06F3  0623               	xorwf	??_escrevedp+1,w
+  1262     06F4  39BF               	andlw	-65
+  1263     06F5  0623               	xorwf	??_escrevedp+1,w
+  1264     06F6  0088               	movwf	8	;volatile
+  1265                           
+  1266                           ;newmain.c: 147:     PORTDbits.RD5 = (dado&0x20)>>5;
+  1267     06F7  0824               	movf	escrevedp@dado,w
+  1268     06F8  00A2               	movwf	??_escrevedp
+  1269     06F9  3005               	movlw	5
+  1270     06FA                     u225:
+  1271     06FA  1003               	clrc
+  1272     06FB  0CA2               	rrf	??_escrevedp,f
+  1273     06FC  3EFF               	addlw	-1
+  1274     06FD  1D03               	skipz
+  1275     06FE  2EFA               	goto	u225
+  1276     06FF  0822               	movf	??_escrevedp,w
+  1277     0700  3901               	andlw	1
+  1278     0701  00A3               	movwf	??_escrevedp+1
+  1279     0702  0EA3               	swapf	??_escrevedp+1,f
+  1280     0703  0DA3               	rlf	??_escrevedp+1,f
+  1281     0704  0808               	movf	8,w	;volatile
+  1282     0705  0623               	xorwf	??_escrevedp+1,w
+  1283     0706  39DF               	andlw	-33
+  1284     0707  0623               	xorwf	??_escrevedp+1,w
+  1285     0708  0088               	movwf	8	;volatile
+  1286                           
+  1287                           ;newmain.c: 148:     PORTDbits.RD4 = (dado&0x10)>>4;
+  1288     0709  0824               	movf	escrevedp@dado,w
+  1289     070A  00A2               	movwf	??_escrevedp
+  1290     070B  3004               	movlw	4
+  1291     070C                     u235:
+  1292     070C  1003               	clrc
+  1293     070D  0CA2               	rrf	??_escrevedp,f
+  1294     070E  3EFF               	addlw	-1
+  1295     070F  1D03               	skipz
+  1296     0710  2F0C               	goto	u235
+  1297     0711  0822               	movf	??_escrevedp,w
+  1298     0712  3901               	andlw	1
+  1299     0713  00A3               	movwf	??_escrevedp+1
+  1300     0714  0EA3               	swapf	??_escrevedp+1,f
+  1301     0715  0808               	movf	8,w	;volatile
+  1302     0716  0623               	xorwf	??_escrevedp+1,w
+  1303     0717  39EF               	andlw	-17
+  1304     0718  0623               	xorwf	??_escrevedp+1,w
+  1305     0719  0088               	movwf	8	;volatile
+  1306     071A                     l821:
+  1307                           
+  1308                           ;newmain.c: 149:     PORTDbits.RD3 =1;
+  1309     071A  1588               	bsf	8,3	;volatile
+  1310     071B                     l823:
+  1311                           
+  1312                           ;newmain.c: 150:     PORTDbits.RD3 =0;
+  1313     071B  1188               	bcf	8,3	;volatile
+  1314     071C                     l825:
+  1315                           
+  1316                           ;newmain.c: 152:  tempo_disp();
+  1317     071C  118A  25B3  118A   	fcall	_tempo_disp
+  1318     071F                     l827:
+  1319                           
+  1320                           ;newmain.c: 154:     PORTDbits.RD7 = (dado&0x8)>>3;
+  1321     071F  1283               	bcf	3,5	;RP0=0, select bank0
+  1322     0720  1303               	bcf	3,6	;RP1=0, select bank0
+  1323     0721  0824               	movf	escrevedp@dado,w
+  1324     0722  00A2               	movwf	??_escrevedp
+  1325     0723  3003               	movlw	3
+  1326     0724                     u245:
+  1327     0724  1003               	clrc
+  1328     0725  0CA2               	rrf	??_escrevedp,f
+  1329     0726  3EFF               	addlw	-1
+  1330     0727  1D03               	skipz
+  1331     0728  2F24               	goto	u245
+  1332     0729  0822               	movf	??_escrevedp,w
+  1333     072A  3901               	andlw	1
+  1334     072B  00A3               	movwf	??_escrevedp+1
+  1335     072C  0CA3               	rrf	??_escrevedp+1,f
+  1336     072D  0CA3               	rrf	??_escrevedp+1,f
+  1337     072E  0808               	movf	8,w	;volatile
+  1338     072F  0623               	xorwf	??_escrevedp+1,w
+  1339     0730  397F               	andlw	-129
+  1340     0731  0623               	xorwf	??_escrevedp+1,w
+  1341     0732  0088               	movwf	8	;volatile
+  1342     0733                     l829:
+  1343                           
+  1344                           ;newmain.c: 155:     PORTDbits.RD6 = (dado&0x4)>>2;
+  1345     0733  0824               	movf	escrevedp@dado,w
+  1346     0734  00A2               	movwf	??_escrevedp
+  1347     0735  3002               	movlw	2
+  1348     0736                     u255:
+  1349     0736  1003               	clrc
+  1350     0737  0CA2               	rrf	??_escrevedp,f
+  1351     0738  3EFF               	addlw	-1
+  1352     0739  1D03               	skipz
+  1353     073A  2F36               	goto	u255
+  1354     073B  0822               	movf	??_escrevedp,w
+  1355     073C  3901               	andlw	1
+  1356     073D  00A3               	movwf	??_escrevedp+1
+  1357     073E  0EA3               	swapf	??_escrevedp+1,f
+  1358     073F  0DA3               	rlf	??_escrevedp+1,f
+  1359     0740  0DA3               	rlf	??_escrevedp+1,f
+  1360     0741  0808               	movf	8,w	;volatile
+  1361     0742  0623               	xorwf	??_escrevedp+1,w
+  1362     0743  39BF               	andlw	-65
+  1363     0744  0623               	xorwf	??_escrevedp+1,w
+  1364     0745  0088               	movwf	8	;volatile
+  1365     0746                     l831:
+  1366                           
+  1367                           ;newmain.c: 156:     PORTDbits.RD5 = (dado&0x2)>>1;
+  1368     0746  0824               	movf	escrevedp@dado,w
+  1369     0747  00A2               	movwf	??_escrevedp
+  1370     0748  1003               	clrc
+  1371     0749  0C22               	rrf	??_escrevedp,w
+  1372     074A  3901               	andlw	1
+  1373     074B  00A3               	movwf	??_escrevedp+1
+  1374     074C  0EA3               	swapf	??_escrevedp+1,f
+  1375     074D  0DA3               	rlf	??_escrevedp+1,f
+  1376     074E  0808               	movf	8,w	;volatile
+  1377     074F  0623               	xorwf	??_escrevedp+1,w
+  1378     0750  39DF               	andlw	-33
+  1379     0751  0623               	xorwf	??_escrevedp+1,w
+  1380     0752  0088               	movwf	8	;volatile
+  1381     0753                     l833:
+  1382                           
+  1383                           ;newmain.c: 157:     PORTDbits.RD4 = (dado&0x1);
+  1384     0753  0824               	movf	escrevedp@dado,w
+  1385     0754  3901               	andlw	1
+  1386     0755  00A2               	movwf	??_escrevedp
+  1387     0756  0EA2               	swapf	??_escrevedp,f
+  1388     0757  0808               	movf	8,w	;volatile
+  1389     0758  0622               	xorwf	??_escrevedp,w
+  1390     0759  39EF               	andlw	-17
+  1391     075A  0622               	xorwf	??_escrevedp,w
+  1392     075B  0088               	movwf	8	;volatile
+  1393     075C                     l835:
+  1394                           
+  1395                           ;newmain.c: 158:     PORTDbits.RD3 = 1;
+  1396     075C  1588               	bsf	8,3	;volatile
+  1397     075D                     l837:
+  1398                           
+  1399                           ;newmain.c: 159:     PORTDbits.RD3 = 0;
+  1400     075D  1188               	bcf	8,3	;volatile
+  1401     075E                     l839:
+  1402                           
+  1403                           ;newmain.c: 160:  tempo_disp();
+  1404     075E  118A  25B3  118A   	fcall	_tempo_disp
+  1405     0761                     l48:
+  1406     0761  0008               	return
+  1407     0762                     __end_of_escrevedp:
+  1408                           
+  1409                           	psect	text7
+  1410     05B3                     __ptext7:	
+  1411 ;; *************** function _tempo_disp *****************
+  1412 ;; Defined at:
+  1413 ;;		line 106 in file "newmain.c"
+  1414 ;; Parameters:    Size  Location     Type
+  1415 ;;		None
+  1416 ;; Auto vars:     Size  Location     Type
+  1417 ;;  tempo           2    0[BANK0 ] unsigned int 
+  1418 ;; Return value:  Size  Location     Type
+  1419 ;;                  1    wreg      void 
+  1420 ;; Registers used:
+  1421 ;;		wreg, status,2
+  1422 ;; Tracked objects:
+  1423 ;;		On entry : 0/0
+  1424 ;;		On exit  : 0/0
+  1425 ;;		Unchanged: 0/0
+  1426 ;; Data sizes:     COMMON   BANK0   BANK1
+  1427 ;;      Params:         0       0       0
+  1428 ;;      Locals:         0       2       0
+  1429 ;;      Temps:          0       0       0
+  1430 ;;      Totals:         0       2       0
+  1431 ;;Total ram usage:        2 bytes
+  1432 ;; Hardware stack levels used: 1
+  1433 ;; This function calls:
+  1434 ;;		Nothing
+  1435 ;; This function is called by:
+  1436 ;;		_ini_display
+  1437 ;;		_escrevedp_ini
+  1438 ;;		_escrevedp
+  1439 ;; This function uses a non-reentrant model
+  1440 ;;
+  1441                           
+  1442     05B3                     _tempo_disp:	
+  1443                           ;psect for function _tempo_disp
+  1444                           
+  1445     05B3                     l811:	
+  1446                           ;incstack = 0
+  1447                           ; Regs used in _tempo_disp: [wreg+status,2]
+  1448                           
+  1449                           
+  1450                           ;newmain.c: 108:  unsigned int tempo;;newmain.c: 109:  for(tempo = 0 ; tempo<0xFF ;tempo
+      +                          ++)
+  1451     05B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1452     05B4  1303               	bcf	3,6	;RP1=0, select bank0
+  1453     05B5  01A0               	clrf	tempo_disp@tempo
+  1454     05B6  01A1               	clrf	tempo_disp@tempo+1
+  1455     05B7                     l817:
+  1456     05B7  3001               	movlw	1
+  1457     05B8  07A0               	addwf	tempo_disp@tempo,f
+  1458     05B9  1803               	skipnc
+  1459     05BA  0AA1               	incf	tempo_disp@tempo+1,f
+  1460     05BB  3000               	movlw	0
+  1461     05BC  07A1               	addwf	tempo_disp@tempo+1,f
+  1462     05BD  3000               	movlw	0
+  1463     05BE  0221               	subwf	tempo_disp@tempo+1,w
+  1464     05BF  30FF               	movlw	255
+  1465     05C0  1903               	skipnz
+  1466     05C1  0220               	subwf	tempo_disp@tempo,w
+  1467     05C2  1C03               	skipc
+  1468     05C3  2DC5               	goto	u191
+  1469     05C4  2DC6               	goto	u190
+  1470     05C5                     u191:
+  1471     05C5  2DB7               	goto	l817
+  1472     05C6                     u190:
+  1473     05C6                     l42:
+  1474     05C6  0008               	return
+  1475     05C7                     __end_of_tempo_disp:
+  1476     007E                     btemp	set	126	;btemp
+  1477     007E                     wtemp0	set	126
+  1478                           
+  1479                           	psect	idloc
+  1480                           
+  1481                           ;Config register IDLOC0 @ 0x2000
+  1482                           ;	unspecified, using default values
+  1483     2000                     	org	8192
+  1484     2000  3FFF               	dw	16383
+  1485                           
+  1486                           ;Config register IDLOC1 @ 0x2001
+  1487                           ;	unspecified, using default values
+  1488     2001                     	org	8193
+  1489     2001  3FFF               	dw	16383
+  1490                           
+  1491                           ;Config register IDLOC2 @ 0x2002
+  1492                           ;	unspecified, using default values
+  1493     2002                     	org	8194
+  1494     2002  3FFF               	dw	16383
+  1495                           
+  1496                           ;Config register IDLOC3 @ 0x2003
+  1497                           ;	unspecified, using default values
+  1498     2003                     	org	8195
+  1499     2003  3FFF               	dw	16383
+  1500                           
+  1501                           	psect	config
+  1502                           
+  1503                           ;Config register CONFIG @ 0x2007
+  1504                           ;	Oscillator Selection bits
+  1505                           ;	FOSC = HS, HS oscillator
+  1506                           ;	Watchdog Timer Enable bit
+  1507                           ;	WDTE = OFF, WDT disabled
+  1508                           ;	Power-up Timer Enable bit
+  1509                           ;	PWRTE = OFF, PWRT disabled
+  1510                           ;	Brown-out Reset Enable bit
+  1511                           ;	BOREN = OFF, BOR disabled
+  1512                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  1513                           ;	LVP = ON, RB3/PGM pin has PGM function; low-voltage programming enabled
+  1514                           ;	Data EEPROM Memory Code Protection bit
+  1515                           ;	CPD = OFF, Data EEPROM code protection off
+  1516                           ;	Flash Program Memory Write Enable bits
+  1517                           ;	WRT = 0x3, unprogrammed default
+  1518                           ;	In-Circuit Debugger Mode bit
+  1519                           ;	DEBUG = 0x1, unprogrammed default
+  1520                           ;	Flash Program Memory Code Protection bit
+  1521                           ;	CP = OFF, Code protection off
+  1522     2007                     	org	8199
+  1523     2007  3FBA               	dw	16314
+
+Data Sizes:
+    Strings     13
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            94     16      16
+    BANK1            94      0       0
+
+Pointer List with Targets:
+
+    display@mens	PTR unsigned char  size(1) Largest target is 13
+		 -> STR_1(CODE[13]), 
+
+    display@bkp_mensagem	PTR unsigned char  size(1) Largest target is 13
+		 -> STR_1(CODE[13]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_display
+    _limpa_disp->_escrevedp_ini
+    _ini_display->_escrevedp_ini
+    _escrevedp_ini->_tempo_disp
+    _display->_posdp
+    _posdp->_escrevedp
+    _escrevedp->_tempo_disp
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0    1374
+                                             14 BANK0      2     2      0
+                            _display
+                        _ini_display
+                         _limpa_disp
+ ---------------------------------------------------------------------------------
+ (1) _limpa_disp                                           0     0      0     134
+                      _escrevedp_ini
+ ---------------------------------------------------------------------------------
+ (1) _ini_display                                          0     0      0     180
+                      _escrevedp_ini
+                         _tempo_disp
+ ---------------------------------------------------------------------------------
+ (2) _escrevedp_ini                                        3     3      0     134
+                                              2 BANK0      3     3      0
+                         _tempo_disp
+ ---------------------------------------------------------------------------------
+ (1) _display                                              7     4      3     968
+                                              7 BANK0      7     4      3
+                          _escrevedp
+                              _posdp
+ ---------------------------------------------------------------------------------
+ (2) _posdp                                                2     0      2     320
+                                              5 BANK0      2     0      2
+                          _escrevedp
+ ---------------------------------------------------------------------------------
+ (3) _escrevedp                                            3     3      0     222
+                                              2 BANK0      3     3      0
+                         _tempo_disp
+ ---------------------------------------------------------------------------------
+ (3) _tempo_disp                                           2     2      0      46
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _display
+     _escrevedp
+       _tempo_disp
+     _posdp
+       _escrevedp
+   _ini_display
+     _escrevedp_ini
+       _tempo_disp
+     _tempo_disp
+   _limpa_disp
+     _escrevedp_ini
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            5E      0       0       3        0.0%
+BANK0               5E     10      10       4       17.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BITBANK1            5E      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BANK1               5E      0       0       6        0.0%
+ABS                  0      0       0       7        0.0%
+DATA                 0      0       0       8        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Wed Oct 25 22:18:42 2023
+
+                      pc 0002                       l42 05C6                       l51 05A3  
+                     l27 0640                       l36 060F                       l45 06CE  
+                     l54 05B2                       l48 0761                       l64 07FC  
+                     fsr 0004                      l811 05B3                      l821 071A  
+                    l901 0770                      l831 0746                      l823 071B  
+                    l911 07B0                      l903 077A                      l817 05B7  
+                    l833 0753                      l825 071C                      l921 07DA  
+                    l913 07BF                      l905 0787                      l841 0660  
+                    l835 075C                      l827 071F                      l819 06D2  
+                    l923 07DE                      l915 07C9                      l907 0796  
+                    l851 06A7                      l843 069B                      l931 0610  
+                    l837 075D                      l829 0733                      l925 07E6  
+                    l917 07CB                      l909 07A1                      l861 06B6  
+                    l853 06AA                      l845 069E                      l941 0629  
+                    l933 0615                      l839 075E                      l919 07D2  
+                    l927 07EC                      l871 06C5                      l863 06B9  
+                    l855 06AD                      l847 06A1                      l951 0643  
+                    l935 0618                      l881 05A0                      l929 07F6  
+                    l873 06C8                      l865 06BC                      l857 06B0  
+                    l849 06A4                      l937 061B                      l875 06CB  
+                    l867 06BF                      l859 06B3                      l883 05C7  
+                    l891 05A7                      l947 062B                      l939 0626  
+                    l877 0599                      l869 06C2                      l885 05D0  
+                    l893 05AF                      l957 0645                      l949 0633  
+                    l879 059C                      l895 0762                      l887 060C  
+                    l959 064D                      l897 0765                      l889 05A4  
+                    l899 0768                      u300 0796                      u205 06D5  
+                    u301 0795                      u310 07B0                      u215 06E7  
+                    u311 07AF                      u320 07BF                      u225 06FA  
+                    u321 07BE                      u305 0792                      u330 07F6  
+                    u235 070C                      u331 07F5                      u315 07AC  
+                    u340 07FC                      u245 0724                      u341 07FB  
+                    u325 07BB                      u190 05C6                      u350 0640  
+                    u191 05C5                      u255 0736                      u351 063F  
+                    u280 077A                      u360 065A                      u281 0779  
+                    u265 0663                      u361 0659                      u290 0787  
+                    u291 0786                      u275 0675                      u355 063C  
+                    u365 0656                      u295 0783                      fsr0 0004  
+                   STR_1 0008              display@mens 0029                     _main 0610  
+                   btemp 007E      display@tam_mensagem 002B             ?_ini_display 0020  
+                   start 0000                    ?_main 0020                    _TRISA 0085  
+                  _TRISB 0086                    _TRISC 0087          __end_of_display 07FD  
+                  _posdp 0599                    pclath 000A                    status 0003  
+                  wtemp0 007E            _escrevedp_ini 065D          __initialization 07FD  
+           __end_of_main 065D                   ??_main 0000                   ?_posdp 0025  
+         ?_escrevedp_ini 0020                ??_display 002A  __end_of__initialization 07FD  
+         __pcstackCOMMON 0000            __end_of_posdp 05A4                  ??_posdp 0000  
+        ??_escrevedp_ini 0022               __pmaintext 0610               __stringtab 0002  
+         display@posicao 0027        __end_of_escrevedp 0762                  __ptext1 05A4  
+                __ptext2 05C7                  __ptext3 065D                  __ptext4 0762  
+                __ptext5 0599                  __ptext6 06CF                  __ptext7 05B3  
+             _limpa_disp 05A4                  _display 0762     end_of_initialization 07FD  
+            posdp@ValorP 0025               _tempo_disp 05B3                _PORTCbits 0007  
+              _PORTDbits 0008        escrevedp_ini@dado 0024            escrevedp@dado 0024  
+            ?_limpa_disp 0020      start_initialization 07FD            ??_ini_display 0000  
+            ?_tempo_disp 0020                ___latbits 0001            __pcstackBANK0 0020  
+    display@bkp_mensagem 002D          tempo_disp@tempo 0020    __end_of_escrevedp_ini 06CF  
+    __end_of_ini_display 0610                __pstrings 0002                 ?_display 0027  
+              _escrevedp 06CF              __stringbase 0007               ?_escrevedp 0020  
+              main@tempo 002E              _ini_display 05C7      display@cont_posicao 002C  
+           ??_limpa_disp 0000       __end_of__stringtab 0008       __end_of_limpa_disp 05B3  
+           ??_tempo_disp 0000              ??_escrevedp 0022       __end_of_tempo_disp 05C7  
+              stringcode 0002                 stringdir 0002                 stringtab 0002  
