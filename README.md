@@ -24,3 +24,11 @@ Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](
 ### [display_lcd.X](https://github.com/pulszao/microcontroladores/tree/main/display_lcd.X)
  - Microcontrolador: PIC16F874A
  - Programa para escrever uma palavra pré determinada no display LCD e piscar um LED.
+
+### [display_lcd_cont.X](https://github.com/pulszao/microcontroladores/tree/main/display_lcd_cont.X)
+ - Microcontrolador: PIC16F874A
+ - Programa para mostrar um contador de 0 a 999 no display LCD.
+
+### [display_lcd_analog.X](https://github.com/pulszao/microcontroladores/tree/main/display_lcd_analog.X)
+ - Microcontrolador: PIC16F874A
+ - Programa para mostrar no display LCD a variação de tensão de um potenciômetro fazendo uso das portas analógicas da PIC.
