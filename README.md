@@ -32,3 +32,9 @@ Projetos da disciplina de microcontroladores da [Universidade de Caxias do Sul](
 ### [display_lcd_analog.X](https://github.com/pulszao/microcontroladores/tree/main/display_lcd_analog.X)
  - Microcontrolador: PIC16F874A
  - Programa para mostrar no display LCD a variação de tensão de um potenciômetro fazendo uso das portas analógicas da PIC.
+
+### [projeto_final](https://github.com/pulszao/microcontroladores/tree/main/projeto_final)
+ - Microcontrolador: PIC16F874A
+ - Projeto final da disciplina
+ - Utilizar um display LCD, um teclado matricial e um LED RGB
+ - Mais informações sobre o projeto pode ser encontrado no [readme.md](https://github.com/pulszao/microcontroladores/tree/main/projeto_final/readme.md) da pasta
