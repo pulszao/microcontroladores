@@ -1,0 +1,204 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F874A ]
+[d frameptr 0 ]
+"10 /Applications/microchip/xc8/v2.41/pic/sources/c90/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /Applications/microchip/xc8/v2.41/pic/sources/c90/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /Applications/microchip/xc8/v2.41/pic/sources/c90/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"52 /Users/pulsz/MPLABXProjects/projeto_final.X/newmain.c
+[v _main main `(v  1 e 1 0 ]
+"95
+[v _enviarByte enviarByte `(v  1 e 1 0 ]
+"122
+[v _definirCorRGB definirCorRGB `(v  1 e 1 0 ]
+"129
+[v _le_teclado le_teclado `(uc  1 e 1 0 ]
+"191
+[v _ini_display ini_display `(v  1 e 1 0 ]
+"223
+[v _tempo_disp tempo_disp `(v  1 e 1 0 ]
+"230
+[v _escrevedp_ini escrevedp_ini `(v  1 e 1 0 ]
+"260
+[v _escrevedp escrevedp `(v  1 e 1 0 ]
+"280
+[v _posdp posdp `(v  1 e 1 0 ]
+"287
+[v _limpa_disp limpa_disp `(v  1 e 1 0 ]
+[s S124 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"181 /Users/pulsz/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.5.151/xc8/pic/include/proc/pic16f874a.h
+[u S131 . 1 `S124 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES131  1 e 1 @5 ]
+[s S172 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233
+[u S181 . 1 `S172 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES181  1 e 1 @6 ]
+[s S147 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"295
+[u S156 . 1 `S147 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES156  1 e 1 @7 ]
+[s S193 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"357
+[u S202 . 1 `S193 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES202  1 e 1 @8 ]
+[s S46 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 GO_nDONE 1 0 :1:2 
+`uc 1 CHS 1 0 :3:3 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1190
+[s S52 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO 1 0 :1:2 
+`uc 1 CHS0 1 0 :1:3 
+`uc 1 CHS1 1 0 :1:4 
+`uc 1 CHS2 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S60 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nDONE 1 0 :1:2 
+]
+[s S63 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO_DONE 1 0 :1:2 
+]
+[u S66 . 1 `S46 1 . 1 0 `S52 1 . 1 0 `S60 1 . 1 0 `S63 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES66  1 e 1 @31 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1437
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S22 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 . 1 0 :2:4 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2248
+[s S27 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+]
+[u S32 . 1 `S22 1 . 1 0 `S27 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES32  1 e 1 @159 ]
+"2720
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"2723
+[v _RC5 RC5 `VEb  1 e 0 @61 ]
+"2726
+[v _RC6 RC6 `VEb  1 e 0 @62 ]
+"2729
+[v _RC7 RC7 `VEb  1 e 0 @63 ]
+"52 /Users/pulsz/MPLABXProjects/projeto_final.X/newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"61
+[v main@caractere caractere `uc  1 a 1 10 ]
+"93
+} 0
+"280
+[v _posdp posdp `(v  1 e 1 0 ]
+{
+[v posdp@ValorP ValorP `i  1 p 2 5 ]
+"285
+} 0
+"260
+[v _escrevedp escrevedp `(v  1 e 1 0 ]
+{
+[v escrevedp@dado dado `uc  1 a 1 wreg ]
+[v escrevedp@dado dado `uc  1 a 1 wreg ]
+"262
+[v escrevedp@dado dado `uc  1 a 1 4 ]
+"278
+} 0
+"287
+[v _limpa_disp limpa_disp `(v  1 e 1 0 ]
+{
+"293
+} 0
+"129
+[v _le_teclado le_teclado `(uc  1 e 1 0 ]
+{
+"130
+[v le_teclado@caractere caractere `uc  1 a 1 0 ]
+"189
+} 0
+"191
+[v _ini_display ini_display `(v  1 e 1 0 ]
+{
+"221
+} 0
+"230
+[v _escrevedp_ini escrevedp_ini `(v  1 e 1 0 ]
+{
+[v escrevedp_ini@dado dado `uc  1 a 1 wreg ]
+[v escrevedp_ini@dado dado `uc  1 a 1 wreg ]
+"232
+[v escrevedp_ini@dado dado `uc  1 a 1 4 ]
+"258
+} 0
+"223
+[v _tempo_disp tempo_disp `(v  1 e 1 0 ]
+{
+"225
+[v tempo_disp@tempo tempo `ui  1 a 2 0 ]
+"228
+} 0
+"122
+[v _definirCorRGB definirCorRGB `(v  1 e 1 0 ]
+{
+[v definirCorRGB@vermelho vermelho `uc  1 a 1 wreg ]
+[v definirCorRGB@vermelho vermelho `uc  1 a 1 wreg ]
+[v definirCorRGB@verde verde `uc  1 p 1 1 ]
+[v definirCorRGB@azul azul `uc  1 p 1 2 ]
+"124
+[v definirCorRGB@vermelho vermelho `uc  1 a 1 3 ]
+"127
+} 0
+"95
+[v _enviarByte enviarByte `(v  1 e 1 0 ]
+{
+[v enviarByte@byte byte `uc  1 a 1 wreg ]
+[v enviarByte@byte byte `uc  1 a 1 wreg ]
+"97
+[v enviarByte@byte byte `uc  1 a 1 0 ]
+"120
+} 0
